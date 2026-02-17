@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad - StudyVerse</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">StudyVerse</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="community.html" class="active">Comunidad</a></li>
+                    <li><a href="meme-mania.html">Meme Manía</a></li>
+                    <li><a href="recreo-digital.html">Recreo Digital</a></li>
+                    <li class="dropdown">
+                        <a href="#">Herramientas ▼</a>
+                        <div class="dropdown-content">
+                            <a href="resumen-express.html">Resumen Express</a>
+                        </div>
+                    </li>
+                    <li id="guest-menu"><a href="auth.html" class="btn-primary">Unirse</a></li>
+                    <!-- REEMPLAZA CON ESTO -->
+                    <li id="user-menu" class="dropdown hidden">
+                        <a href="profile.html">Mi Perfil ▼</a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">Ver Perfil</a>
+                            <a href="settings.html">Ajustes</a>
+                            <a href="#" id="logoutButton">Cerrar Sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="community-full-layout">
+            <!-- PANEL 1: Barra de Navegación de Chats -->
+            <nav class="community-nav-bar">
+                <ul id="chat-nav-list">
+                    <!-- El script llenará esta lista dinámicamente -->
+                </ul>
+            </nav>
+
+
+            <!-- PANEL 2: Lista de Contenido (Usuarios o Amigos) -->
+            <aside class="community-sidebar">
+                <div class="sidebar-header">
+                    <h3 id="sidebar-title">Cargando...</h3>
+                    <button id="find-friends-btn" class="btn-secondary hidden" title="Buscar Amigos">👥+</button>
+                </div>
+                <div id="sidebar-content">
+                    <!-- Contenedores para las diferentes listas -->
+                    <ul id="friends-list" class="user-list hidden"></ul>
+                    <ul id="requests-list" class="user-list hidden"></ul>
+                    <ul id="all-users-list" class="user-list hidden"></ul>
+                    <ul id="groups-list" class="user-list hidden"></ul>
+                    <ul id="general-chat-user-list" class="user-list">
+                        <li>Cargando...</li>
+                    </ul>
+                </div>
+                <div class="create-group-container">
+                    <button id="create-group-btn" class="btn-secondary">➕ Crear Grupo</button>
+                </div>
+            </aside>
+
+            <!-- PANEL 3: Contenido Principal (Chat o Vista de Amigos) -->
+            <section class="community-main-content">
+                <!-- Vista de Chat (para General y Privados) -->
+                <div id="chat-view" class="chat-container">
+                    <div class="chat-header">
+                        <h2 id="chat-title">#general</h2>
+                    </div>
+                    <div id="chat-messages-container" class="chat-messages">
+                        <!-- El script llenará los mensajes -->
+                    </div>
+                    <form id="chat-form" class="chat-input">
+                        <input type="text" id="chatMessageInput" placeholder="Escribe en #general..." required
+                            autocomplete="off">
+                        <button type="submit" id="sendMessageButton" class="btn-primary">Enviar</button>
+                    </form>
+                </div>
+                <!-- Vista para cuando no hay chat seleccionado -->
+                <div id="no-chat-selected-view" class="placeholder-view hidden">
+                    <h3>Selecciona un chat</h3>
+                    <p>Elige un canal o un amigo para empezar a chatear.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- El footer se elimina de esta página específica para dar espacio al chat -->
+
+    <!-- SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+    <!--... tu script de firebase y script.js... -->
+
+    <!-- PEGA ESTE BLOQUE DE CÓDIGO AQUÍ, ANTES DE CERRAR EL BODY -->
+    <div id="create-group-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>Crear Nuevo Grupo</h2>
+            <form id="create-group-form">
+                <div class="form-group">
+                    <label for="group-name-input">Nombre del Grupo</label>
+                    <input type="text" id="group-name-input" placeholder="Ej: Equipo de Estudio" required>
+                </div>
+                <div class="form-group">
+                    <label>Añadir Amigos</label>
+                    <ul id="group-friend-selector" class="user-list">
+                        <!-- El script llenará esta lista con tus amigos -->
+                    </ul>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="cancel-group-creation-btn" class="btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn-primary">Crear Grupo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="group-settings-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="settings-group-name">Ajustes del Grupo</h2>
+
+            <div class="form-group">
+                <label>Miembros del Grupo</label>
+                <ul id="group-members-list" class="user-list">
+                    <!-- El script llenará esto -->
+                </ul>
+            </div>
+
+            <!-- DENTRO DE #group-settings-modal.modal-actions -->
+            <div class="modal-actions">
+                <button type="button" id="add-members-btn" class="btn-primary">Añadir Miembros</button>
+                <!-- BOTÓN NUEVO -->
+                <button type="button" id="leave-group-btn" class="btn-danger">Abandonar Grupo</button>
+                <button type="button" id="delete-group-btn" class="btn-danger hidden">Eliminar Grupo</button>
+                <button type="button" id="close-settings-modal-btn" class="btn-secondary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+    <!--... justo después del div de #group-settings-modal -->
+    <div id="add-members-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Añadir nuevos miembros</h3>
+            <div class="form-group">
+                <ul id="add-friend-selector" class="user-list">
+                    <!-- El script llenará esta lista con amigos que no están en el grupo -->
+                </ul>
+            </div>
+            <div class="modal-actions">
+                <button type="button" id="cancel-add-members-btn" class="btn-secondary">Cancelar</button>
+                <button type="button" id="confirm-add-members-btn" class="btn-primary">Añadir</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

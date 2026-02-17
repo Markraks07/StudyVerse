@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- ============== METADATOS BÁSICOS ============== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario - StudyVerse</title>
+
+    <!-- ============== ESTILOS Y FUENTES ============== -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ============================================== -->
+    <!-- ========= CABECERA DE NAVEGACIÓN GLOBAL ======== -->
+    <!-- ============================================== -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">StudyVerse</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="community.html">Comunidad</a></li>
+                    <li><a href="meme-mania.html">Meme Manía</a></li>
+                    <li><a href="recreo-digital.html">Recreo Digital</a></li>
+                    <li class="dropdown">
+                        <a href="#">Herramientas ▼</a>
+                        <div class="dropdown-content">
+                            <a href="resumen-express.html">Resumen Express</a>
+                        </div>
+                    </li>
+                    <!-- Menú de Usuario -->
+                    <li class="dropdown" id="user-menu">
+                        <a href="profile.html" id="user-menu-trigger" class="active">Mi Perfil ▼</a>
+                        <div class="dropdown-content">
+                            <a href="profile.html" class="active">Ver Perfil</a>
+                            <a href="settings.html">Ajustes</a>
+                            <a id="logoutButton" href="#">Cerrar Sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Menú para usuarios no logeados (inicialmente oculto) -->
+            <nav class="main-nav" id="guest-menu" style="display: none;">
+                <ul>
+                    <li><a href="auth.html" class="btn-primary"
+                            style="margin-left: 20px; padding: 10px 20px;">Unirse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- =========== CONTENIDO PRINCIPAL ============== -->
+    <!-- ============================================== -->
+    <main>
+        <!-- === Cabecera del Perfil del Usuario === -->
+        <!-- profile.html -->
+        <section class="profile-header">
+            <div class="container">
+                <!-- Ahora es un <img> para poder mostrar el avatar desde una URL -->
+                <img id="profileAvatar" class="avatar-image size-large" src="" alt="Avatar del usuario">
+                <div class="profile-info">
+                    <h1 id="profileUsername">Cargando...</h1>
+                    <p id="profileBio">Miembro de StudyVerse.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Sección de Estadísticas del Usuario === -->
+        <section class="content-section">
+            <div class="container">
+                <h3>Estadísticas y Logros</h3>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span id="statMemesCreated" class="stat-number">12</span>
+                        <span class="stat-label">Memes Creados</span>
+                    </div>
+                    <div class="stat-item">
+                        <span id="statGamesPlayed" class="stat-number">45</span>
+                        <span class="stat-label">Partidas Jugadas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span id="statVotesReceived" class="stat-number">1.2k</span>
+                        <span class="stat-label">Votos Recibidos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Sección de Contenido Creado por el Usuario === -->
+        <section class="content-section">
+            <div class="container">
+                <h3>Memes Creados</h3>
+                <div id="user-memes-grid" class="meme-grid">
+
+                    <!-- Meme de Ejemplo 1 (se generará con JS) -->
+                    <div class="meme-card">
+                        <img src="https://via.placeholder.com/300x200.png?text=Meme+del+Usuario"
+                            alt="Meme sobre estudiar">
+                        <p class="meme-caption">"Mi cara cuando el profe dice 'esto no entra en el examen'."</p>
+                    </div>
+
+                    <!-- Meme de Ejemplo 2 -->
+                    <div class="meme-card">
+                        <img src="https://via.placeholder.com/300x200.png?text=Otro+Meme" alt="Meme sobre programar">
+                        <p class="meme-caption">"Debuggear un viernes por la tarde."</p>
+                    </div>
+
+                    <!-- Mensaje si no hay memes -->
+                    <p id="no-memes-placeholder" class="placeholder-text hidden">Este usuario todavía no ha creado
+                        ningún meme. ¡Anímale a empezar!</p>
+
+                </div> <!-- Fin de meme-grid -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================== -->
+    <!-- =============== PIE DE PÁGINA ================ -->
+    <!-- ============================================== -->
+    <footer class="main-footer">
+        <p>&copy; 2024 StudyVerse. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

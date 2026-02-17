@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- ============== METADATOS BÁSICOS ============== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen Express - StudyVerse</title>
+
+    <!-- ============== ESTILOS Y FUENTES ============== -->
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!-- ========= CABECERA DE NAVEGACIÓN GLOBAL ======== -->
+    <!-- ============================================== -->
+    <header class="main-header">
+    <div class="container">
+        <a href="index.html" class="logo">StudyVerse</a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="community.html">Comunidad</a></li>
+                <li><a href="meme-mania.html">Meme Manía</a></li>
+                <li><a href="recreo-digital.html">Recreo Digital</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active">Herramientas ▼</a>
+                    <div class="dropdown-content">
+                        <a href="resumen-express.html" class="active">Resumen Express</a>
+                    </div>
+                </li>
+                <!-- Menú de Usuario -->
+                <li class="dropdown" id="user-menu">
+                    <a href="profile.html" id="user-menu-trigger">Mi Perfil ▼</a>
+                    <div class="dropdown-content">
+                        <a href="profile.html">Ver Perfil</a>
+                        <a href="settings.html">Ajustes</a>
+                        <a id="logoutButton" href="#">Cerrar Sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- Menú para usuarios no logeados (inicialmente oculto) -->
+        <nav class="main-nav" id="guest-menu" style="display: none;">
+             <ul>
+                 <li><a href="auth.html" class="btn-primary" style="margin-left: 20px; padding: 10px 20px;">Unirse</a></li>
+             </ul>
+        </nav>
+    </div>
+</header>
+
+    <!-- ============================================== -->
+    <!-- =========== CONTENIDO PRINCIPAL ============== -->
+    <!-- ============================================== -->
+    <main>
+        <!-- === Sección Hero de la Herramienta === -->
+        <section class="page-hero">
+            <div class="container">
+                <h2>Resumen Express ⚡</h2>
+                <p>Pega cualquier texto largo y nuestra IA lo convertirá en un resumen conciso y fácil de entender. ¡Ahorra tiempo y estudia de forma más inteligente!</p>
+            </div>
+        </section>
+
+        <!-- === Sección de la Herramienta === -->
+        <section class="content-section">
+            <div class="container">
+                
+                <div class="tool-layout">
+                    <!-- Columna Izquierda: Input del Texto -->
+                    <div class="tool-input-area">
+                        <h3>Pega tu texto aquí</h3>
+                        <textarea id="textToSummarize" placeholder="Escribe o pega el artículo, apuntes o cualquier texto que quieras resumir..."></textarea>
+                        <button id="summarizeButton" class="btn-primary">Generar Resumen</button>
+                    </div>
+
+                    <!-- Columna Derecha: Output del Resumen -->
+                    <div class="tool-output-area">
+                        <h3>Resumen Generado</h3>
+                        <div id="summaryResult" class="summary-box">
+                            <p class="placeholder-text">Tu resumen aparecerá aquí...</p>
+                            <!-- El texto del resumen se insertará aquí con JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================== -->
+    <!-- =============== PIE DE PÁGINA ================ -->
+    <!-- ============================================== -->
+    <footer class="main-footer">
+        <p>&copy; 2024 StudyVerse. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

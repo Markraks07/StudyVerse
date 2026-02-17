@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- ============== METADATOS BÁSICOS ============== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a StudyVerse - Tu Universo de Estudio Conectado</title>
+
+    <!-- ============== ESTILOS Y FUENTES ============== -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ============================================== -->
+    <!-- ========= CABECERA DE NAVEGACIÓN GLOBAL ======== -->
+    <!-- ============================================== -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">StudyVerse</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="community.html">Comunidad</a></li>
+                    <li><a href="meme-mania.html">Meme Manía</a></li>
+                    <li><a href="recreo-digital.html">Recreo Digital</a></li>
+                    <li class="dropdown">
+                        <a href="#">Herramientas ▼</a>
+                        <div class="dropdown-content">
+                            <a href="resumen-express.html">Resumen Express</a>
+                        </div>
+                    </li>
+                    <!-- Menú de Usuario -->
+                    <li class="dropdown" id="user-menu">
+                        <a href="profile.html" id="user-menu-trigger">Mi Perfil ▼</a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">Ver Perfil</a>
+                            <a href="settings.html">Ajustes</a>
+                            <a id="logoutButton" href="#">Cerrar Sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Menú para usuarios no logeados (inicialmente oculto) -->
+            <nav class="main-nav" id="guest-menu" style="display: none;">
+                <ul>
+                    <li><a href="auth.html" class="btn-primary"
+                            style="margin-left: 20px; padding: 10px 20px;">Unirse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- =============== SECCIÓN HERO ================= -->
+    <!-- ============================================== -->
+    <section class="hero-section">
+        <div class="container animated-text">
+            <h2>Tu Universo de Estudio Conectado</h2>
+            <p>
+                StudyVerse es más que una plataforma. Es una comunidad donde puedes aprender, jugar y conectar con otros
+                estudiantes como tú.
+            </p>
+            <a href="auth.html?mode=register" class="btn-primary" style="font-size: 1.2em; padding: 15px 30px;">Empieza
+                Ahora</a>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- === SECCIÓN DE CARACTERÍSTICAS (MEJORADA) ==== -->
+    <!-- ============================================== -->
+    <section class="features-section">
+        <div class="container">
+            <h3>¿Qué encontrarás en StudyVerse?</h3>
+            <div class="feature-grid">
+
+                <!-- Tarjeta 1: Comunidad (Clicable) -->
+                <a href="community.html" class="feature-item-link">
+                    <div class="feature-item">
+                        <span class="feature-emoji">💬</span>
+                        <h4>Comunidad Activa</h4>
+                        <p>Chatea en tiempo real, comparte ideas y haz nuevos amigos en nuestra comunidad exclusiva.</p>
+                    </div>
+                </a>
+
+                <!-- Tarjeta 2: Herramientas (Clicable) -->
+                <a href="community.html" class="feature-item-link">
+                    <div class="feature-item">
+                        <span class="feature-emoji">🛠️</span>
+                        <h4>Herramientas de Estudio</h4>
+                        <p>Utiliza herramientas innovadoras diseñadas para potenciar tu aprendizaje y organización.</p>
+                    </div>
+                </a>
+
+                <!-- Tarjeta 3: Juegos (Clicable) -->
+                <a href="community.html" class="feature-item-link">
+                    <div class="feature-item">
+                        <span class="feature-emoji">🎮</span>
+                        <h4>Juegos y Retos</h4>
+                        <p>Desafía a tus amigos y a ti mismo con juegos educativos que hacen que aprender sea divertido.
+                        </p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- ========== SECCIÓN LLAMADA A LA ACCIÓN ======== -->
+    <!-- ============================================== -->
+    <section class="call-to-action-section">
+        <div class="container">
+            <h3>¿Listo para unirte?</h3>
+            <p>Crea tu cuenta gratuita y empieza a explorar todo lo que StudyVerse tiene para ofrecerte hoy mismo.</p>
+            <a href="auth.html?mode=register" class="btn-primary"
+                style="background: var(--primary-bg); color: var(--accent-color-green); font-size: 1.2em; padding: 15px 30px;">Crear
+                Cuenta</a>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- =============== PIE DE PÁGINA ================ -->
+    <!-- ============================================== -->
+    <footer class="main-footer">
+        <p>&copy; 2024 StudyVerse. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Pequeño CSS inline para los nuevos estilos de las tarjetas -->
+    <style>
+        .feature-item-link {
+            text-decoration: none;
+        }
+
+        .feature-emoji {
+            font-size: 4em;
+            /* Emoji mucho más grande */
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 8px var(--accent-color-blue));
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .feature-item:hover .feature-emoji {
+            filter: drop-shadow(0 0 12px var(--accent-color-green));
+            transform: scale(1.1);
+            /* Hacemos que el emoji crezca un poco */
+        }
+    </style>
+
+</body>
+
+</html>

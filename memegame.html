@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- ============== METADATOS BÁSICOS ============== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme-Game - StudyVerse</title>
+
+    <!-- ============== ESTILOS Y FUENTES ============== -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ============================================== -->
+    <!-- ========= CABECERA DE NAVEGACIÓN GLOBAL ======== -->
+    <!-- ============================================== -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">StudyVerse</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="community.html">Comunidad</a></li>
+                    <li><a href="meme-mania.html">Meme Manía</a></li>
+                    <li><a href="recreo-digital.html" class="active">Recreo Digital</a></li>
+                    <li class="dropdown">
+                        <a href="#">Herramientas ▼</a>
+                        <div class="dropdown-content">
+                            <a href="resumen-express.html">Resumen Express</a>
+                        </div>
+                    </li>
+                    <!-- Menú de Usuario -->
+                    <li class="dropdown" id="user-menu">
+                        <a href="profile.html" id="user-menu-trigger">Mi Perfil ▼</a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">Ver Perfil</a>
+                            <a href="settings.html">Ajustes</a>
+                            <a id="logoutButton" href="#">Cerrar Sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Menú para usuarios no logeados (inicialmente oculto) -->
+            <nav class="main-nav" id="guest-menu" style="display: none;">
+                <ul>
+                    <li><a href="auth.html" class="btn-primary"
+                            style="margin-left: 20px; padding: 10px 20px;">Unirse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- =========== CONTENIDO PRINCIPAL ============== -->
+    <!-- ============================================== -->
+    <main>
+        <!-- === Sección Hero del Juego === -->
+        <section class="game-hero">
+            <div class="container">
+                <h2>Meme-Game</h2>
+                <p>¡Prepárate para reaccionar, escribir y votar! El reto de creatividad más divertido de StudyVerse.</p>
+            </div>
+        </section>
+
+        <!-- === Sección principal del Juego con todas las etapas === -->
+        <section class="game-section">
+            <div class="container">
+
+                <!-- ETAPA 1: LOBBY (Sala de Espera) -->
+                <div id="stage-lobby" class="game-stage">
+                    <h3>Sala de Espera</h3>
+                    <p>Esperando a que se unan más jugadores...</p>
+                    <div id="player-list" class="player-list">
+                        <!-- Ejemplo de jugador con emoji -->
+                        <div class="player-card">
+                            <div class="avatar-emoji size-small">🧑‍🔬</div>
+                            <span>Usuario 1</span>
+                        </div>
+                        <div class="player-card">
+                            <div class="avatar-emoji size-small">😎</div>
+                            <span>Tú</span>
+                        </div>
+                    </div>
+                    <button id="startGameButton" class="btn-primary" style="margin-top: 30px;">Iniciar Juego</button>
+                </div>
+
+                <!-- ETAPA 2: REACCIÓN AL MEME (Captura de Foto) -->
+                <div id="stage-react" class="game-stage hidden">
+                    <h3>¡Reacciona al Meme!</h3>
+                    <div class="meme-display">
+                        <img id="gameMemeImage" src="https://via.placeholder.com/400x250.png?text=Meme+Aleatorio"
+                            alt="Meme del juego">
+                    </div>
+                    <div id="timer" class="timer">10</div>
+                    <div class="camera-preview-area">
+                        <video id="cameraPreview" width="320" height="240" autoplay muted></video>
+                        <canvas id="photoCanvas" width="320" height="240" class="hidden"></canvas>
+                        <button id="takePictureButton" class="btn-primary">¡Capturar Reacción!</button>
+                        <p class="camera-info">Asegúrate de permitir el acceso a tu cámara.</p>
+                    </div>
+                </div>
+
+                <!-- ETAPA 3: AÑADIR LEYENDA -->
+                <div id="stage-caption" class="game-stage hidden">
+                    <h3>Añade una Leyenda Ingeniosa</h3>
+                    <div class="meme-caption-editor">
+                        <img id="capturedPhoto" src="https://via.placeholder.com/320x240.png?text=Tu+Foto"
+                            alt="Tu foto capturada">
+                        <textarea id="captionText" placeholder="Escribe aquí tu leyenda..." maxlength="100"></textarea>
+                        <button id="submitCaptionButton" class="btn-primary">Enviar Meme</button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 4: VOTACIÓN -->
+                <div id="stage-vote" class="game-stage hidden">
+                    <h3>¡Hora de Votar!</h3>
+                    <p>Elige el meme que te parezca más divertido.</p>
+                    <div id="memesToVote" class="meme-grid">
+                        <!-- Las tarjetas para votar se generarán aquí con JS -->
+                        <!-- Ejemplo:
+                        <div class="meme-vote-card">
+                            <img src="meme-generado.jpg" alt="Meme a votar">
+                            <p>"Leyenda del meme"</p>
+                            <button class="btn-secondary">Votar</button>
+                        </div>
+                        -->
+                    </div>
+                    <p id="voteMessage" class="vote-message hidden">¡Tu voto ha sido registrado!</p>
+                </div>
+
+                <!-- ETAPA 5: RESULTADOS -->
+                <div id="stage-results" class="game-stage hidden">
+                    <h3>Resultados Finales</h3>
+                    <div id="rankingList">
+                        <!-- El ranking se generará aquí con JS -->
+                        <!-- Ejemplo:
+                        <div class="ranking-item">
+                            <span class="player-name">Usuario 1</span>
+                            <span class="score">150 Puntos</span>
+                        </div>
+                        -->
+                    </div>
+                    <button id="playAgainButton" class="btn-primary" style="margin-top: 30px;">Jugar Otra Vez</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================== -->
+    <!-- =============== PIE DE PÁGINA ================ -->
+    <!-- ============================================== -->
+    <footer class="main-footer">
+        <p>&copy; 2024 StudyVerse. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

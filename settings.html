@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- ============== METADATOS BÁSICOS ============== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes de Cuenta - StudyVerse</title>
+
+    <!-- ============== ESTILOS Y FUENTES ============== -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ============================================== -->
+    <!-- ========= CABECERA DE NAVEGACIÓN GLOBAL ======== -->
+    <!-- ============================================== -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">StudyVerse</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="community.html">Comunidad</a></li>
+                    <li><a href="meme-mania.html">Meme Manía</a></li>
+                    <li><a href="recreo-digital.html">Recreo Digital</a></li>
+                    <li class="dropdown">
+                        <a href="#">Herramientas ▼</a>
+                        <div class="dropdown-content">
+                            <a href="resumen-express.html">Resumen Express</a>
+                        </div>
+                    </li>
+                    <!-- Menú de Usuario -->
+                    <li class="dropdown" id="user-menu">
+                        <a href="profile.html" id="user-menu-trigger" class="active">Mi Perfil ▼</a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">Ver Perfil</a>
+                            <a href="settings.html" class="active">Ajustes</a>
+                            <a id="logoutButton" href="#">Cerrar Sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Menú para usuarios no logeados (inicialmente oculto) -->
+            <nav class="main-nav" id="guest-menu" style="display: none;">
+                <ul>
+                    <li><a href="auth.html" class="btn-primary"
+                            style="margin-left: 20px; padding: 10px 20px;">Unirse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- =========== CONTENIDO PRINCIPAL ============== -->
+    <!-- ============================================== -->
+    <main>
+        <!-- === Sección Hero de la Página === -->
+        <section class="page-hero">
+            <div class="container">
+                <h2>Ajustes de Cuenta</h2>
+                <p>Gestiona tu información personal, tu avatar y la seguridad de tu cuenta.</p>
+            </div>
+        </section>
+
+        <!-- === Sección de Contenido con las Tarjetas de Ajustes === -->
+        <section class="content-section">
+            <div class="container">
+                <div class="settings-layout">
+
+                    <!-- Tarjeta 1: Información Pública -->
+                    <div class="settings-card">
+                        <h3>Información Pública</h3>
+                        <form id="public-info-form">
+                            <div class="form-group">
+                                <label for="settingsUsername">Nombre de Usuario</label>
+                                <input type="text" id="settingsUsername">
+                            </div>
+                            <div class="form-group">
+                                <label for="settingsBio">Biografía</label>
+                                <textarea id="settingsBio" rows="3"
+                                    placeholder="Una breve descripción sobre ti..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+
+                    <!-- Tarjeta 2: Creador de Avatar (Reemplaza la anterior) -->
+                    <div class="settings-card">
+                        <h3>Elige tu Avatar</h3>
+                        <div class="avatar-gallery-layout">
+
+                            <!-- ===== Columna Izquierda: Filtros y Guardado ===== -->
+                            <div class="gallery-sidebar">
+                                <h4>Filtros</h4>
+                                <div class="avatar-filters">
+                                    <div class="form-group">
+                                        <label for="filter-hair">Estilo de Pelo</label>
+                                        <select id="filter-hair" class="avatar-filter-control">
+                                            <option value="all">Todos</option>
+                                            <option value="long">Largo</option>
+                                            <option value="short">Corto</option>
+                                            <option value="special">Especial</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="filter-hair-color">Color de Pelo</label>
+                                        <select id="filter-hair-color" class="avatar-filter-control">
+                                            <option value="all">Todos</option>
+                                            <option value="4a312c">Castaño</option>
+                                            <option value="2c1b18">Negro</option>
+                                            <option value="d4a12a">Rubio</option>
+                                            <option value="e8e1e1">Blanco</option>
+                                            <option value="cb6820">Pelirrojo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="preview-and-save">
+                                    <h4>Selección Actual</h4>
+                                    <div class="avatar-preview-wrapper">
+                                        <!-- La imagen seleccionada se mostrará aquí -->
+                                        <img id="avatar-preview-image" src=""
+                                            alt="Vista previa del avatar seleccionado">
+                                    </div>
+                                    <button id="save-avatar-button" class="btn-primary full-width">Guardar
+                                        Avatar</button>
+                                </div>
+                            </div>
+
+                            <!-- ===== Columna Derecha: Galería de Avatares ===== -->
+                            <div class="gallery-main-content">
+                                <div id="avatar-gallery" class="avatar-gallery-grid">
+                                    <!-- La galería de avatares se cargará aquí con JavaScript -->
+                                    <p>Cargando avatares...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3: Seguridad de la Cuenta -->
+                    <div class="settings-card">
+                        <h3>Seguridad</h3>
+                        <form id="password-change-form">
+                            <div class="form-group">
+                                <label for="currentPassword">Contraseña Actual</label>
+                                <input type="password" id="currentPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">Nueva Contraseña</label>
+                                <input type="password" id="newPassword">
+                            </div>
+                            <button type="submit" class="btn-primary">Cambiar Contraseña</button>
+                        </form>
+                    </div>
+
+                    <!-- Tarjeta 4: Zona de Peligro -->
+                    <div class="settings-card danger-zone">
+                        <h3>Zona de Peligro</h3>
+                        <p>Esta acción es irreversible. Todos tus datos, memes y progreso se perderán para siempre.</p>
+                        <button id="deleteAccountButton" class="btn-danger">Eliminar mi cuenta</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================== -->
+    <!-- =============== PIE DE PÁGINA ================ -->
+    <!-- ============================================== -->
+    <footer class="main-footer">
+        <p>&copy; 2024 StudyVerse. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

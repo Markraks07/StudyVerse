@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- ============== METADATOS BÁSICOS ============== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Manía - StudyVerse</title>
+
+    <!-- ============== ESTILOS Y FUENTES ============== -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ============================================== -->
+    <!-- ========= CABECERA DE NAVEGACIÓN GLOBAL ======== -->
+    <!-- ============================================== -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">StudyVerse</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="community.html">Comunidad</a></li>
+                    <li><a href="meme-mania.html" class="active">Meme Manía</a></li>
+                    <li><a href="recreo-digital.html">Recreo Digital</a></li>
+                    <li class="dropdown">
+                        <a href="#">Herramientas ▼</a>
+                        <div class="dropdown-content">
+                            <a href="resumen-express.html">Resumen Express</a>
+                        </div>
+                    </li>
+                    <!-- Menú de Usuario -->
+                    <li class="dropdown" id="user-menu">
+                        <a href="profile.html" id="user-menu-trigger">Mi Perfil ▼</a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">Ver Perfil</a>
+                            <a href="settings.html">Ajustes</a>
+                            <a id="logoutButton" href="#">Cerrar Sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Menú para usuarios no logeados (inicialmente oculto) -->
+            <nav class="main-nav" id="guest-menu" style="display: none;">
+                <ul>
+                    <li><a href="auth.html" class="btn-primary"
+                            style="margin-left: 20px; padding: 10px 20px;">Unirse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- =========== CONTENIDO PRINCIPAL ============== -->
+    <!-- ============================================== -->
+    <main>
+        <!-- === Sección Hero de la Página === -->
+        <section class="page-hero">
+            <div class="container">
+                <h2>Meme Manía</h2>
+                <p>La galería definitiva con los memes más creativos de la comunidad StudyVerse. ¡Vota, comparte y
+                    demuestra quién es el más ingenioso!</p>
+            </div>
+        </section>
+
+        <!-- === Sección de la Galería de Memes === -->
+        <section class="content-section">
+            <div class="container">
+                <h3>Últimos Memes Añadidos</h3>
+
+                <!-- Grid donde se mostrarán todos los memes -->
+                <div id="meme-gallery-grid" class="meme-grid">
+
+                    <!-- Meme de Ejemplo 1 (Estos se generarán con JS) -->
+                    <div class="meme-card">
+                        <img src="https://via.placeholder.com/300x200.png?text=Meme+Estudiante"
+                            alt="Meme sobre estudiar">
+                        <p class="meme-caption">"Yo, cinco minutos antes del examen final."</p>
+                        <div class="meme-actions">
+                            <button class="btn-secondary" style="padding: 8px 15px;">Votar (120)</button>
+                        </div>
+                    </div>
+
+                    <!-- Meme de Ejemplo 2 -->
+                    <div class="meme-card">
+                        <img src="https://via.placeholder.com/300x200.png?text=Café+y+Código"
+                            alt="Meme sobre programar">
+                        <p class="meme-caption">"Mi código funcionando a la primera."</p>
+                        <div class="meme-actions">
+                            <button class="btn-secondary" style="padding: 8px 15px;">Votar (98)</button>
+                        </div>
+                    </div>
+
+                    <!-- Meme de Ejemplo 3 -->
+                    <div class="meme-card">
+                        <img src="https://via.placeholder.com/300x200.png?text=Procrastinación"
+                            alt="Meme sobre procrastinar">
+                        <p class="meme-caption">"Mañana empiezo sin falta."</p>
+                        <div class="meme-actions">
+                            <button class="btn-secondary" style="padding: 8px 15px;">Votar (75)</button>
+                        </div>
+                    </div>
+
+                    <!-- Meme de Ejemplo 4 -->
+                    <div class="meme-card">
+                        <img src="https://via.placeholder.com/300x200.png?text=Trabajo+en+Grupo"
+                            alt="Meme sobre trabajo en grupo">
+                        <p class="meme-caption">"Cuando eres el único que ha hecho su parte del trabajo."</p>
+                        <div class="meme-actions">
+                            <button class="btn-secondary" style="padding: 8px 15px;">Votar (64)</button>
+                        </div>
+                    </div>
+
+                </div> <!-- Fin de meme-grid -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================== -->
+    <!-- =============== PIE DE PÁGINA ================ -->
+    <!-- ============================================== -->
+    <footer class="main-footer">
+        <p>&copy; 2024 StudyVerse. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- ============== METADATOS BÁSICOS ============== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recreo Digital - StudyVerse</title>
+
+    <!-- ============== ESTILOS Y FUENTES ============== -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ============================================== -->
+    <!-- ========= CABECERA DE NAVEGACIÓN GLOBAL ======== -->
+    <!-- ============================================== -->
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">StudyVerse</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="community.html">Comunidad</a></li>
+                    <li><a href="meme-mania.html">Meme Manía</a></li>
+                    <li><a href="recreo-digital.html" class="active">Recreo Digital</a></li>
+                    <li class="dropdown">
+                        <a href="#">Herramientas ▼</a>
+                        <div class="dropdown-content">
+                            <a href="resumen-express.html">Resumen Express</a>
+                        </div>
+                    </li>
+                    <!-- Menú de Usuario -->
+                    <li class="dropdown" id="user-menu">
+                        <a href="profile.html" id="user-menu-trigger">Mi Perfil ▼</a>
+                        <div class="dropdown-content">
+                            <a href="profile.html">Ver Perfil</a>
+                            <a href="settings.html">Ajustes</a>
+                            <a id="logoutButton" href="#">Cerrar Sesión</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Menú para usuarios no logeados (inicialmente oculto) -->
+            <nav class="main-nav" id="guest-menu" style="display: none;">
+                <ul>
+                    <li><a href="auth.html" class="btn-primary"
+                            style="margin-left: 20px; padding: 10px 20px;">Unirse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- =========== CONTENIDO PRINCIPAL ============== -->
+    <!-- ============================================== -->
+    <main>
+        <!-- === Sección Hero de la Página === -->
+        <section class="page-hero">
+            <div class="container">
+                <h2>Recreo Digital</h2>
+                <p>Es hora de tomar un descanso. Desafía a tus amigos y a ti mismo con nuestra colección de juegos
+                    educativos y divertidos.</p>
+            </div>
+        </section>
+
+        <!-- === Sección de la Galería de Juegos === -->
+        <section class="content-section">
+            <div class="container">
+                <h3>Elige tu Aventura</h3>
+
+                <!-- Grid donde se mostrarán todos los juegos -->
+                <div id="game-gallery-grid" class="game-grid">
+
+                    <!-- Tarjeta de Juego 1: Meme-Game -->
+                    <div class="game-card">
+                        <div class="game-card-emoji">🎮</div>
+                        <h4>Meme-Game</h4>
+                        <p>Pon a prueba tu ingenio. ¡Reacciona, crea y vota por el meme más divertido en una competición
+                            en tiempo real!</p>
+                        <a href="memegame.html" class="btn-primary">Jugar Ahora</a>
+                    </div>
+
+                    <!-- Tarjeta de Juego 2: Quiz Cósmico (Ejemplo) -->
+                    <div class="game-card">
+                        <div class="game-card-emoji">🧠</div>
+                        <h4>Quiz Cósmico</h4>
+                        <p>Demuestra tus conocimientos en una trepidante batalla de preguntas y respuestas contra otros
+                            estudiantes.</p>
+                        <a href="#" class="btn-secondary disabled-link">Próximamente</a>
+                    </div>
+
+                    <!-- Tarjeta de Juego 3: Código Contrarreloj (Ejemplo) -->
+                    <div class="game-card">
+                        <div class="game-card-emoji">💻</div>
+                        <h4>Código Contrarreloj</h4>
+                        <p>Resuelve pequeños desafíos de programación antes de que se acabe el tiempo. ¡Solo para
+                            valientes!</p>
+                        <a href="#" class="btn-secondary disabled-link">Próximamente</a>
+                    </div>
+
+                </div> <!-- Fin de game-grid -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================== -->
+    <!-- =============== PIE DE PÁGINA ================ -->
+    <!-- ============================================== -->
+    <footer class="main-footer">
+        <p>&copy; 2024 StudyVerse. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
